@@ -1,5 +1,5 @@
 import nsv, com, machine
-from structure import wifi, update
+from structure import wifi, update, machine_data
 from time import sleep
 
 def boot():

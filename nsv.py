@@ -127,7 +127,7 @@ def port1(client, req):
     elif req[1] == 'credentials':
         ssid, psw = req[2], req[3]
         
-        wifi.set_credentials(ssid,psw)
+        wifi.set_credentials(ssid+','+psw)
         json_response = json.dumps({'command':'credentials','state': 'saved'})
         json_header = hdr['json'].replace('$len',str(len(json_response)))
         
@@ -240,6 +240,7 @@ def create_html():
     return chtml
 
 def start():
+    th(srv, (0,)) 
     th(srv, (0,)) 
     print(green+'server started'+normal)
 

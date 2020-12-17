@@ -51,8 +51,6 @@ def start(to):
     try:
         main_loop = asyncio.new_event_loop()  
         main_loop.create_task(cam(to))
-        main_loop.create_task(cam(to))
-        main_loop.create_task(cam(to))
         main_loop.create_task(data(to))
         main_loop.run_forever()
     except OSError as e:
@@ -85,7 +83,7 @@ async def data(to):
                         if conn_try > to:
                             print(color.red()+'DATA CONN F'+color.normal())
                             break
-                await asyncio.sleep(.05)
+                await asyncio.sleep(.1)
                 pass
             if conn_try != to:
                 print(color.green()+'{\n\tconnected to data_address'+color.normal())
@@ -177,7 +175,7 @@ async def cam(to):
                         if conn_try > to:
                             print(color.red()+'CAM CONN F'+color.normal())
                             break
-                await asyncio.sleep(.05)
+                await asyncio.sleep(.1)
                 pass
             if conn_try != to:
                 print(color.green()+'{\n\tconnected to cam_address'+color.normal())
